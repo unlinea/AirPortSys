@@ -7,27 +7,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <TextField promptText="USERNAME" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" onMouseClicked="#bia" prefHeight="100.0" prefWidth="200.0">
          <children>
             <PasswordField promptText="PASSWORD" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SignupBTN" text=" SIGN UP">
+            <Button mnemonicParsing="false" text=" SIGN UP">
                <HBox.margin>
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#SigninBTN" text=" SIGN IN">
+            <Button mnemonicParsing="false" text=" SIGN IN">
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
