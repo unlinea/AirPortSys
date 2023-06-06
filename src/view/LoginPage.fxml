@@ -14,7 +14,7 @@
             <TextField promptText="USERNAME" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" onMouseClicked="#bia" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <PasswordField promptText="PASSWORD" />
          </children>
@@ -26,7 +26,7 @@
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text=" SIGN IN">
+            <Button fx:id="signinBTN" mnemonicParsing="false" onMouseClicked="#SignInBTNCLICK" text=" SIGN IN">
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
