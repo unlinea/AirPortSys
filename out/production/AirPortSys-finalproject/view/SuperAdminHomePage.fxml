@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.22742474916387959" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SuperAdminPageController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <VBox alignment="CENTER" layoutY="1.0" prefHeight="598.0" prefWidth="178.0">
+               <children>
+                  <Button fx:id="profileBTN" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#superOnClick" prefWidth="100.0" text="profile">
+                     <VBox.margin>
+                        <Insets bottom="60.0" top="60.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="system report">
+                     <VBox.margin>
+                        <Insets bottom="60.0" top="60.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="system control">
+                     <VBox.margin>
+                        <Insets bottom="60.0" top="60.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="financial report">
+                     <VBox.margin>
+                        <Insets bottom="60.0" top="60.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Label layoutX="260.0" layoutY="211.0" text="welcome to folan " />
+            <Label layoutX="231.0" layoutY="282.0" text="please choose a tab to begin" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
