@@ -16,13 +16,16 @@ public class LoginPageController {
     private Scene scene;
     private Parent root;
     @FXML
-    PasswordField pwdField;
+    private TextField UserNameField;
+
     @FXML
-    TextField usernameField;
+    private PasswordField PassWordFIeld;
+
     @FXML
-    Button signupBTN;
+    private Button SignUpBTN;
+
     @FXML
-    Button signinBTN;
+    private Button SignInBTN;
 
     public void SignInBTNCLICK() {
 
@@ -32,7 +35,7 @@ public class LoginPageController {
             throw new RuntimeException(e);
         }
 
-        stage = (Stage)signinBTN.getScene().getWindow();
+        stage = (Stage)SignInBTN.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
