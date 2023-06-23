@@ -10,7 +10,7 @@
          <children>
             <VBox alignment="CENTER" layoutY="1.0" prefHeight="598.0" prefWidth="178.0">
                <children>
-                  <Button fx:id="profileBTN" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#superOnClick" prefWidth="100.0" text="profile">
+                  <Button fx:id="profileBTN" alignment="CENTER" mnemonicParsing="false" prefWidth="100.0" text="profile">
                      <VBox.margin>
                         <Insets bottom="60.0" top="60.0" />
                      </VBox.margin>

@@ -7,34 +7,62 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="550.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpPageController">
+<AnchorPane prefHeight="550.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpPageController">
    <children>
-      <Label layoutX="206.0" layoutY="64.0" text="Label" />
-      <HBox layoutX="95.0" layoutY="138.0" prefHeight="25.0" prefWidth="240.0" spacing="15.0">
+      <Label alignment="CENTER" layoutX="192.0" layoutY="32.0" prefHeight="17.0" prefWidth="60.0" text="SIGN UP" />
+      <HBox layoutX="97.0" layoutY="183.0" prefHeight="25.0" prefWidth="240.0" spacing="15.0">
          <children>
             <Label text="UserName :" />
-            <TextField fx:id="UserNameField" />
+            <TextField fx:id="usernamefield" />
          </children>
       </HBox>
-      <HBox layoutX="100.0" layoutY="228.0" prefHeight="60.0" prefWidth="240.0" spacing="15.0">
+      <HBox layoutX="102.0" layoutY="285.0" prefHeight="39.0" prefWidth="240.0" spacing="15.0">
          <children>
             <Label text="PassWord :" />
-            <PasswordField fx:id="PassWordField" />
+            <PasswordField fx:id="passfield" />
          </children>
       </HBox>
-      <HBox layoutX="86.0" layoutY="287.0" prefHeight="60.0" prefWidth="240.0" spacing="15.0">
+      <HBox layoutX="88.0" layoutY="335.0" prefHeight="60.0" prefWidth="240.0" spacing="15.0">
          <children>
             <Label text="re-PassWord :" />
-            <PasswordField fx:id="rePassWordField" />
+            <PasswordField fx:id="repassfield" />
          </children>
       </HBox>
-      <HBox layoutX="137.0" layoutY="366.0" prefHeight="51.0" prefWidth="194.0" spacing="80.0">
+      <HBox layoutX="137.0" layoutY="434.0" prefHeight="51.0" prefWidth="194.0" spacing="80.0">
          <children>
-            <Button fx:id="SignUpBTN" mnemonicParsing="false" onMouseClicked="#SignUpBTN" text="SignUp" />
-            <Button fx:id="CancelBTN" mnemonicParsing="false" onMouseClicked="#CancelBTN" text="Cancel" />
+            <Button fx:id="signupBTN" mnemonicParsing="false" onMouseClicked="#SignUpBTN" text="SignUp" />
+            <Button fx:id="cancelBTN" mnemonicParsing="false" onMouseClicked="#CancelBTN" text="Cancel" />
          </children>
       </HBox>
       <Label fx:id="UserNamePromptLBL" layoutX="178.0" layoutY="175.0" />
-      <Label fx:id="PasssWordPromptLBL" layoutX="176.0" layoutY="318.0" />
+      <Label fx:id="PassWordPromptLBL" layoutX="176.0" layoutY="340.0" />
+      <HBox layoutX="97.0" layoutY="88.0" prefHeight="39.0" prefWidth="240.0" spacing="15.0">
+         <children>
+            <Label text="FirstName :" />
+            <TextField fx:id="firstnamefield" />
+         </children>
+      </HBox>
+      <HBox layoutX="99.0" layoutY="134.0" prefHeight="39.0" prefWidth="231.0" spacing="15.0">
+         <children>
+            <Label text="LastName :" />
+            <TextField fx:id="lastnamefield" />
+         </children>
+      </HBox>
+      <HBox layoutX="124.0" layoutY="220.0" prefHeight="25.0" prefWidth="209.0" spacing="15.0">
+         <children>
+            <Label text="Email :" />
+            <TextField fx:id="emailfield" />
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="253.0" prefHeight="25.0" prefWidth="272.0" spacing="15.0">
+         <children>
+            <Label text="phone number :" />
+            <TextField fx:id="phonenumberfield" />
+         </children>
+      </HBox>
+      <Label fx:id="userNamePromptLBL" layoutX="342.0" layoutY="187.0" text="Label" />
+      <Label fx:id="emailPromptLBL" layoutX="342.0" layoutY="224.0" text="Label" />
+      <Label fx:id="rePassPromptLBL" layoutX="342.0" layoutY="340.0" text="Label" />
+      <Label fx:id="alarmLBL" layoutX="208.0" layoutY="395.0" text="Label" />
    </children>
 </AnchorPane>

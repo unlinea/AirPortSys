@@ -9,7 +9,7 @@ import java.io.IOException;
 public class SuperAdminPageController {
     @FXML
     Button profileBTN;
-    public void superOnClick(){
+    public void profileBTN(){
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/profilePage.fxml"));
         try {

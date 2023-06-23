@@ -5,17 +5,22 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
-    public static void main(String[] args) { launch(args); }
+    public static void main(String[] args) {
+            launch(args);
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
 
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println("FLAG : " + e.getMessage() + "closing");
+        }
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 }
