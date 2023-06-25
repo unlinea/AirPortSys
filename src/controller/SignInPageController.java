@@ -1,6 +1,5 @@
 package controller;
 
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,16 +10,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.DbConnection;
-import model.Passenger;
 import model.Person;
 import java.io.IOException;
 import java.sql.*;
 import static model.Person.Role.*;
 
 public class SignInPageController {
-
+    String ID;
     DbConnection dbconnection = new DbConnection();
-    Connection conn = dbconnection.getInstance();
+    Connection conn = DbConnection.getInstance();
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -41,11 +39,10 @@ public class SignInPageController {
 
     public void SignInBTNClick() {
 
-        String ID = checkExist(UserNameField.getText(),PassWordFIeld.getText());
+         ID = checkExist(UserNameField.getText(),PassWordFIeld.getText());
         if (ID == null){
             //he doesn't exist ...
             UserNameLBL.setText("user doesn't exist");
-            return;
         }else {
             //show related scene
             try {
@@ -53,12 +50,37 @@ public class SignInPageController {
                 pst.setString(1,ID);
                 ResultSet rs = pst.executeQuery();
                 String role = null;
+
                 while (rs.next()){
                 role = rs.getString("role");}
+
                 //if authorized for employee loads employee.
                 if (role.equals("employee")){loadPage("/view/EmpHome.fxml");}
                 //if authorized for passenger loads passenger.
-                else if (role.equals("passenger")){loadPage("/view/PASSHome.fxml");}
+                else if (role.equals("Passenger")){
+
+//                    PASSHomeController phc = new PASSHomeController();
+//                    phc.setId(ID);
+                    SignInBTN.getScene().getWindow().hide();
+                    FXMLLoader ld = new FXMLLoader(getClass().getResource("/view/PASSHome.fxml"));
+                    try {
+                        ld.load();
+
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                        throw new RuntimeException(e);
+                    }
+
+                    PASSHomeController phc = ld.getController();
+                    phc.setSic(this);
+                    phc.setId(ID);
+                    SignInBTN.getScene().getWindow().hide();
+                    Scene scene = new Scene(ld.getRoot());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+//                    loadPage("/view/PASSHome.fxml");
+                }
                 //if authorized for manager loads managerhome.
                 else if (role.equals("manager")){loadPage("/view/MGRHome.fxml");}
                 //if authorized for Sup loads SupHome.
@@ -95,27 +117,17 @@ public class SignInPageController {
 
     public String checkExist(String userName, String password){
         DbConnection dbConnection = new DbConnection();
-        Connection conn = dbConnection.getInstance();
-
-        String input = userName;
+        Connection conn = DbConnection.getInstance();
         try {
             PreparedStatement pst = conn.prepareStatement("SELECT * FROM userlist WHERE username = ? AND password = ?");
             pst.setString(1,userName);
             pst.setString(2,password);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-            if (rs.getString("password").equals(null)){return null;}
+            if (rs.getString("password").equals(null)){}
             else {
-                return rs.getString("ID");
-//                Person person = new Person();
-//                person.setFirstName(rs.getString("firstName"));
-//                person.setLastName(rs.getString("lastName"));
-//                person.setUsername(rs.getString("username"));
-//                person.setPassword(rs.getString("password"));
-//                person.setEmail(rs.getString("email"));
-//                person.setRole(roleConverter(rs.getString("role")));
-//                person.setID(rs.getString("ID"));
-            }
+                return rs.getString("id");
+                }
             }
         }catch (Exception e){
             System.out.println("sign in :" + e.getMessage());
@@ -133,7 +145,7 @@ public class SignInPageController {
 
     public String findByUserName(String username){
         DbConnection dbConnection = new DbConnection();
-        Connection conn = dbConnection.getInstance();
+        Connection conn = DbConnection.getInstance();
         try {
             PreparedStatement st = conn.prepareStatement("SELECT * FROM userlist WHERE username = ?");
             st.setString(1, username);
@@ -147,7 +159,7 @@ public class SignInPageController {
 //            }
 
         } catch (SQLException e) {
-            System.out.println("errrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrorrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+            System.out.println("err");
             throw new RuntimeException(e);
         }
 

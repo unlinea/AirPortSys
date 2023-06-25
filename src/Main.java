@@ -16,6 +16,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("SIGN IN");
             stage.show();
         }catch (Exception e){
             System.out.println("FLAG : " + e.getMessage() + "closing");

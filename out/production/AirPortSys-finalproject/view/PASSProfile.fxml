@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PASSProfilecontroller">
+   <children>
+      <Label layoutX="217.0" layoutY="290.0" text="firstname :" />
+      <Label layoutX="507.0" layoutY="290.0" text="lastname :" />
+      <Label layoutX="216.0" layoutY="237.0" text="username :" />
+      <Label layoutX="200.0" layoutY="205.0" text="passenger id :" />
+      <Label layoutX="237.0" layoutY="343.0" text="email :" />
+      <Label fx:id="passeditLBL" layoutX="351.0" layoutY="448.0" onMouseClicked="#passeditLBL" text="click to change password" />
+      <Label layoutX="476.0" layoutY="343.0" text="phone number :" />
+      <Label fx:id="idLBL" layoutX="286.0" layoutY="205.0" />
+      <Label fx:id="usernameLBL" layoutX="286.0" layoutY="237.0" />
+      <Label fx:id="fnameLBL" layoutX="286.0" layoutY="290.0" />
+      <Label fx:id="emailLBL" layoutX="286.0" layoutY="343.0" />
+      <Label fx:id="lnameLBL" layoutX="572.0" layoutY="290.0" />
+      <Label fx:id="phonenumLBL" layoutX="572.0" layoutY="343.0" />
+      <Button fx:id="returnBTN" layoutX="725.0" layoutY="526.0" mnemonicParsing="false" onMouseClicked="#returnBTN" prefHeight="50.0" prefWidth="50.0" text="return" />
+   </children>
+</AnchorPane>

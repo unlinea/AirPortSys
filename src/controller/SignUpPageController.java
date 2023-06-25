@@ -17,6 +17,8 @@ import model.TableInfo;
 import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUpPageController {
     DbConnection db = new DbConnection();
@@ -62,19 +64,30 @@ public class SignUpPageController {
     private Label rePassPromptLBL;
     @FXML
     private Label alarmLBL;
+    @FXML
+    private Label phonePromptLBL;
+    @FXML
+    private Label passLBL;
     public void SignUpBTN() {
         if (checkEmpty()){
             return;
         } else{
-        String testMsg = authPassenger(usernamefield.getText(),emailfield.getText());
-        if (takeAction(testMsg)){
-            //if no err checks pass
-            if(checkPass(passfield.getText(),repassfield.getText())){
-                //if pass is ok --> adds Passenger and leads him to sign in page.
-                addPassenger();
-                loadSignInPage();
-            }
-        }else return;
+            if (matchEmail(emailfield.getText())){
+                if (matchPhoneNumber(phonenumberfield.getText())){
+                    String testMsg = authPassenger(usernamefield.getText(),emailfield.getText());
+                    if (takeAction(testMsg)){
+                        if (matchPassword(passfield.getText())){
+                            //if no err checks pass
+                            if(checkPass(passfield.getText(),repassfield.getText())){
+                                //if pass is ok --> adds Passenger and leads him to sign in page.
+                                addPassenger();
+                                loadSignInPage();
+                            }
+                        }else takeAction("5");
+
+                    }else return;
+                }else takeAction("4");
+        }else takeAction("3");
         }
     }
 
@@ -109,6 +122,8 @@ public class SignUpPageController {
             emailPromptLBL.setText("");
             rePassPromptLBL.setText("");
             alarmLBL.setText("");
+            phonePromptLBL.setText("");
+            passLBL.setText("");
             return false;
         }
         else if (testMsg.equals("2")) {
@@ -116,6 +131,8 @@ public class SignUpPageController {
             emailPromptLBL.setText("ALREADY USED!");
             rePassPromptLBL.setText("");
             alarmLBL.setText("");
+            phonePromptLBL.setText("");
+            passLBL.setText("");
             return false;
         }
         else if (testMsg.equals("0"))
@@ -124,15 +141,56 @@ public class SignUpPageController {
             emailPromptLBL.setText("");
             rePassPromptLBL.setText("");
             alarmLBL.setText("");
+            phonePromptLBL.setText("");
+            passLBL.setText("");
             return true;
+        } else if (testMsg.equals("3")) {
+            userNamePromptLBL.setText("");
+            emailPromptLBL.setText("NOT VALID!");
+            rePassPromptLBL.setText("");
+            alarmLBL.setText("");
+            phonePromptLBL.setText("");
+            passLBL.setText("");
+
+        } else if (testMsg.equals("4")) {
+            userNamePromptLBL.setText("");
+            emailPromptLBL.setText("");
+            phonePromptLBL.setText("NOT VALID!");
+            rePassPromptLBL.setText("");
+            alarmLBL.setText("");
+            passLBL.setText("");
+        } else if (testMsg.equals("5")) {
+            userNamePromptLBL.setText("");
+            emailPromptLBL.setText("");
+            phonePromptLBL.setText("");
+            rePassPromptLBL.setText("");
+            alarmLBL.setText("");
+            passLBL.setText("NOT VALID < 15 chars");
         }
         return false;
     }
-
-
     public void CancelBTN() {
         // goes back to sign in page
         loadSignInPage(cancelBTN);
+    }
+    public boolean matchPassword (String password){
+        Pattern p = Pattern.compile("^[a-zA-z0-9]{5,15}$");
+        Matcher m = p.matcher(password);
+        boolean matchFound = m.find();
+        return matchFound;
+    }
+
+    public boolean matchPhoneNumber(String phoneNumber){
+        Pattern p = Pattern.compile("^09+[0-9]{9}$");///^\+?[0-9]{11}$/
+        Matcher m = p.matcher(phoneNumber);
+        boolean matchFound = m.find();
+        return matchFound;
+    }
+    public boolean matchEmail(String email){
+        Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(email);
+        boolean matchFound = m.find();
+        return matchFound;
     }
     public String authPassenger(String userName,String email){
         try {

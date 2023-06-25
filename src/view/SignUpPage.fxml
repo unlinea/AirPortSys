@@ -64,5 +64,7 @@
       <Label fx:id="emailPromptLBL" layoutX="342.0" layoutY="224.0" text="Label" />
       <Label fx:id="rePassPromptLBL" layoutX="342.0" layoutY="340.0" text="Label" />
       <Label fx:id="alarmLBL" layoutX="208.0" layoutY="395.0" text="Label" />
+      <Label fx:id="phonePromptLBL" layoutX="342.0" layoutY="257.0" text="Label" />
+      <Label fx:id="passLBL" layoutX="342.0" layoutY="296.0" text="Label" />
    </children>
 </AnchorPane>
