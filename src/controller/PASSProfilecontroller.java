@@ -80,7 +80,7 @@ public class PASSProfilecontroller {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        PASSHomeController phc;
+        PASSHomeController phc = ld.getController();
         phc.setId(id);
         returnBTN.getScene().getWindow().hide();
         Scene scene = new Scene(ld.getRoot());

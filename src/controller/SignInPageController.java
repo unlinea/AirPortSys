@@ -33,6 +33,8 @@ public class SignInPageController {
 
     @FXML
     private Button SignUpBTN;
+    @FXML
+    private Label alarmLBL;
 
     @FXML
     private Button SignInBTN;
@@ -40,9 +42,9 @@ public class SignInPageController {
     public void SignInBTNClick() {
 
          ID = checkExist(UserNameField.getText(),PassWordFIeld.getText());
-        if (ID == null){
+        if (ID==null){
             //he doesn't exist ...
-            UserNameLBL.setText("user doesn't exist");
+            alarmLBL.setText("something went wrong!");
         }else {
             //show related scene
             try {
@@ -86,6 +88,7 @@ public class SignInPageController {
                 //if authorized for Sup loads SupHome.
                 else if (role.equals("SuperAdmin")){loadPage("/view/SUPHomePage.fxml");}
             } catch (SQLException e) {
+                alarmLBL.setText("something went wrong!");
                 throw new RuntimeException(e);
             }
         }

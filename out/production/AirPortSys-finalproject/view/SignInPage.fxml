@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="550.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignInPageController">
+<AnchorPane prefHeight="550.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignInPageController">
    <children>
       <TextField fx:id="UserNameField" layoutX="146.0" layoutY="237.0" promptText="USERNAME" />
       <PasswordField fx:id="PassWordFIeld" layoutX="146.0" layoutY="293.0" promptText="PASSWORD" />
       <Label fx:id="signUpLBL" layoutX="259.0" layoutY="375.0" onMouseClicked="#SignUpLBL" text="sign up now !" />
       <Button fx:id="SignInBTN" layoutX="146.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#SignInBTNClick" text="SIGN IN" />
       <Label layoutX="207.0" layoutY="104.0" text="LOGO" />
+      <Label fx:id="alarmLBL" layoutX="206.0" layoutY="332.0" text="Label" />
    </children>
 </AnchorPane>
